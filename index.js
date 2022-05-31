@@ -7,18 +7,21 @@ app.get("/", (req, res) => {
 })
 
 app.post("/assessment.list", (req, res) => {
-    res.json([
-        {
-            id: "1",
-            name: "synonyms",
-            description: "proste synonyma"
-        },
-        {
-            id: "2",
-            name: "dependencies",
-            description: "default assignment"
-        }
-    ])
+    res.json({
+        success: true,
+        results: [
+            {
+                id: "1",
+                name: "synonyms",
+                description: "proste synonyma"
+            },
+            {
+                id: "2",
+                name: "dependencies",
+                description: "default assignment"
+            }
+        ]
+})
 })
 
 app.listen(PORT, () => console.log(`App running on port ${PORT}`))
