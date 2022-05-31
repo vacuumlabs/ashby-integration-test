@@ -11,12 +11,12 @@ app.post("/assessment.list", (req, res) => {
         success: true,
         results: [
             {
-                id: "1",
+                assessment_type_id: "1",
                 name: "synonyms",
                 description: "proste synonyma"
             },
             {
-                id: "2",
+                assessment_type_id: "2",
                 name: "dependencies",
                 description: "default assignment"
             }
