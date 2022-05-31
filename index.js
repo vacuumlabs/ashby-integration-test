@@ -12,6 +12,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/assessment.list", (req, res) => {
+  console.log("Called assessment.list");
+
   res.json({
     success: true,
     results: [
@@ -33,7 +35,7 @@ app.post("/assessment.start", (req, res) => {
   console.log(req.body);
 
   const assessment_id = uuid.v4();
-  console.log(`New Assessment ID: ${assessment_id}`);
+  console.log(`Called assessment.start, new assessment ID: ${assessment_id}`);
 
   res.json({
     success: true,
@@ -52,6 +54,14 @@ app.post("/assessment.start", (req, res) => {
       },
     },
   });
+});
+
+app.post("/assessment.cancel", (req, res) => {
+  const { assessment_id } = req.body;
+
+  console.log(`Called assessment.cancel on ${assessment_id}`);
+
+  res.json({ success: true, results: { assessment_id } });
 });
 
 app.listen(PORT, () => console.log(`App running on port ${PORT}`));
